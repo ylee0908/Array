@@ -17,3 +17,7 @@ def moveZeroes(self, nums: List[int]) -> None:
             right += 1
             
 #Brutal force
+
+def moveZeroes(self, nums):
+        pos = 0
+        
