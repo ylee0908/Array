@@ -24,6 +24,7 @@ def two_sum_hashtable(A, target):
 #time complexity: O(logn)
 #space complexity: O(1)
 def two_sum_sorted_array(A, target):
+	A.sort()
 	i = 0
 	j = len(A) - 1
 	while i < j:
