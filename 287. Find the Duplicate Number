@@ -1,0 +1,31 @@
+Note:
+
+You must not modify the array (assume the array is read only).
+You must use only constant, O(1) extra space.
+Your runtime complexity should be less than O(n2).
+There is only one duplicate number in the array, but it could be repeated more than once.
+
+# O(1) space
+class Solution:
+    def findDuplicate(self, nums):
+        for i in nums:
+            if nums[abs(i)] > 0:
+                nums[abs(i)] = -nums[abs(i)]
+            else:
+                return abs(i)
+                
+#iterative time O(nlogn) due to sort, space O(n)
+def findDuplicate(self, nums):
+        nums = sorted(nums) #not allowed to modify array, due to this space complexity is O(n)
+        for i in range(1, len(nums)+1):
+            if nums[i] == nums[i-1]:
+                return nums[i]
+                
+#hash table, time O(n) due to set, space O(n) if we need to add till n
+class Solution:
+    def findDuplicate(self, nums):
+        seen = set()
+        for i in nums:
+            if i in seen:
+                return i
+            seen.add(i)
