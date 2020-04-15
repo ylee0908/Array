@@ -1,3 +1,18 @@
+Note:
+
+You must do this in-place without making a copy of the array.
+Minimize the total number of operations.
+
+#less operations
+
+def moveZeroes(self, nums):
+        pos = 0
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                nums[pos], nums[i] = nums[i], nums[pos]
+                pos += 1
+        return nums
+                
 #two pointers time: O(n), space: O(1)
 def moveZeroes(self, nums: List[int]) -> None:
         """
@@ -15,14 +30,6 @@ def moveZeroes(self, nums: List[int]) -> None:
 
             # keep going
             right += 1
-            
-#Brutal force
-
-def moveZeroes(self, nums):
-        pos = 0
-        for i in range(len(nums)):
-            if nums[i] != 0:
-                nums[pos], nums[i] = nums[i], nums[pos]
-                pos += 1
+           
         return nums
         
