@@ -35,9 +35,3 @@ class Solution:
             else:
                 end = mid - 1
         return -1
-
-
-return [get_start_index(nums, target), get_end_index(nums, target)]
-
-
-
