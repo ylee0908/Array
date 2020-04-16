@@ -1,29 +1,41 @@
-def get_start_index(nums, target):
-	start, end = 0, len(nums) - 1
-	while start <= end:
-		mid = start + (end - start) // 2
-		if nums[mid] == target:
-			if mid == 0 or nums[mid - 1] != target:
-				return mid
-		if nums[mid] < target:
-			start = mid + 1
-		else:
-			end = mid - 1
-	return -1
+Given an array of integers nums sorted in ascending order, find the starting and ending position of a given target value.
+
+Your algorithm's runtime complexity must be in the order of O(log n).
+
+If the target is not found in the array, return [-1, -1].
 
 
-def get_end_index(nums, target):
-	start, end = 0, len(nums) - 1
-	while start <= end:
-		mid = start + (end - start) // 2
-		if nums[mid] == target:
-			if mid == len(nums) - 1 or nums[mid + 1] != target:
-				return mid
-		if nums[mid] <= target:
-			start = mid + 1
-		else:
-			end = mid - 1
-	return -1
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        return self.get_start_index(nums, target), self.get_end_index(nums, target)
+        
+    def get_start_index(self, nums, target):
+        start, end = 0, len(nums) - 1
+        while start <= end:
+            mid = start + (end - start) // 2
+            if nums[mid] == target:
+                if mid == 0 or nums[mid - 1] != target:
+                    return mid
+            if nums[mid] < target:
+                start = mid + 1
+            else:
+                end = mid - 1
+        return -1
+
+
+    def get_end_index(self, nums, target):
+        start, end = 0, len(nums) - 1
+        while start <= end:
+            mid = start + (end - start) // 2
+            if nums[mid] == target:
+                if mid == len(nums) - 1 or nums[mid + 1] != target:
+                    return mid
+            if nums[mid] <= target:
+                start = mid + 1
+            else:
+                end = mid - 1
+        return -1
+
 
 return [get_start_index(nums, target), get_end_index(nums, target)]
 
