@@ -1,0 +1,27 @@
+136. Single Number
+Share
+Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+
+Note:
+
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+# time O(n), space O(1)
+def singleNumber(nums):
+
+        ans = 0
+        for i in nums:
+            ans ^= i
+        return ans
+   
+
+# time 0(n) spac: O(n)
+def singleNumber(nums):
+        ht = dict()
+        for i in nums:
+            if i in ht:
+                ht[i] = 1
+            else:
+                ht[i] += 1
+        for i in ht:
+            if ht[i] == 1
+            return i
