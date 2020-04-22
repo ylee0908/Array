@@ -11,3 +11,6 @@ class Solution:
             compare_price = price - min_price
             max_profit = max(max_profit, compare_price)
         return max_profit
+        
+        
+ Time O(n), Space O(1)
