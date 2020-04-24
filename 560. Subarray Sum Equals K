@@ -1,8 +1,15 @@
+https://leetcode.com/problems/subarray-sum-equals-k/
+Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k.
+
+Example 1:
+Input:nums = [1,1,1], k = 2
+Output: 2
+
 def subarraySum(self, nums: List[int], k: int) -> int:
         count = 0
         sums = 0
         d = dict()
-        d[0] = 1
+        d[0] = 1 #Edge case, we need to count on 0 as one element is also a subarray.
         for i in range(len(nums)):
             sums += nums[i]
             count += d.get(sums-k, 0)
