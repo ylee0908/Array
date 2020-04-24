@@ -1,12 +1,11 @@
-350. Intersection of Two Arrays II
-Share
-Given two arrays, write a function to compute their intersection.
+https://leetcode.com/problems/intersection-of-two-arrays-ii/ 
 
-Example 1:
+350. Intersection of Two Arrays II
+Given two arrays, write a function to compute their intersection.
 
 Input: nums1 = [1,2,2,1], nums2 = [2,2]
 Output: [2,2]
-
+#try, error with two pointers
 class Solution(object):
     def intersect(self, nums1, nums2):
 
@@ -28,3 +27,20 @@ class Solution(object):
                 break
 
         return res
+ 
+ 
+ #ht
+ def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        dict1 = dict()
+        for i in nums1:
+            if i not in dict1:
+                dict1[i] = 1
+            else:
+                dict1[i] += 1
+        ret = []
+        for i in nums2:
+            if i in dict1 and dict1[i] >0 :
+                ret.append(i)
+                dict1[i] -= 1
+        return ret
+
