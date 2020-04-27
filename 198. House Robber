@@ -1,0 +1,14 @@
+https://leetcode.com/problems/house-robber/
+
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if not nums: return 0
+        if len(nums) == 1: return nums[0]
+        
+        running_total = [1] * len(nums)
+        running_total[0] = nums[0]
+        running_total[1] = max(nums[0], nums[1])
+        for i in range(2, len(nums)):
+            running_total[i] = max(running_total[i-1], running_total[i-2]+nums[i])
+        return running_total[-1]
