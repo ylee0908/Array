@@ -1,0 +1,41 @@
+https://leetcode.com/problems/rotate-array/
+
+#reversal algorithm, time O(n), space O(1)
+def rotate(nums, k):
+	"""
+	Do not return anything, modify nums in-place instead.
+	"""
+	n = len(nums)
+	reverse(nums, 0, n - 1)
+	reverse(nums, 0, k - 1)
+	reverse(nums, k, n - 1)
+
+	return nums
+  
+def reverse(nums, s, e):
+	while s < e:
+		nums[s], nums[e] = nums[e], nums[s]
+		s, e = s + 1, e - 1
+
+
+#time optimised O(n), space O(n)
+def rotate(nums, k):
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        for i in range(len(nums)):
+            if (i+k) < len(nums):
+                nums[i+k] = nums[i]
+            else:
+                new_index = (i+k) % len(nums)
+                nums[new_index] = nums[i]
+
+        return nums
+
+#Time: O(n^2), space: O(1)        
+def rotate(nums, k):
+		for i in range(k):
+			prev = nums[-1]
+			for j in range(len(nums)):
+				nums[j], prev = prev, nums[j]
+		return nums
