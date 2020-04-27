@@ -20,17 +20,15 @@ def reverse(nums, s, e):
 
 #time optimised O(n), space O(n)
 def rotate(nums, k):
-        """
-        Do not return anything, modify nums in-place instead.
-        """
+	res = [0} * len(nums)       
         for i in range(len(nums)):
             if (i+k) < len(nums):
-                nums[i+k] = nums[i]
+                res[i+k] = nums[i]
             else:
                 new_index = (i+k) % len(nums)
-                nums[new_index] = nums[i]
+                res[new_index] = nums[i]
 
-        return nums
+        return res
 
 #Time: O(n^2), space: O(1)        
 def rotate(nums, k):
