@@ -1,0 +1,10 @@
+https://leetcode.com/problems/contains-duplicate/
+
+def containsDuplicate(self, nums: List[int]) -> bool:
+        d = dict()
+        for n in nums:
+            if n in d:
+                d[n] += 1
+            else:
+                d[n] = 1
+        return any(value >=2 for value in d.values())
