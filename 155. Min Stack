@@ -11,7 +11,7 @@ class MinStack:
         curMin = self.getMin()
         if curMin == None or x < curMin:
             curMin = x
-        self.q.append((x, min(self.getMin(), x));
+        self.q.append((x, curMin));
 
     # @return nothing
     def pop(self):
