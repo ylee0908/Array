@@ -22,6 +22,6 @@ def singleNumber(nums):
                 ht[i] = 1
             else:
                 ht[i] += 1
-        for i in ht:
+        for i in ht: 
             if ht[i] == 1
-            return i
+            return i   #[key for key, value in d.items() if value == 1]
