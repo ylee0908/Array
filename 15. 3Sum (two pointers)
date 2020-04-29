@@ -9,7 +9,7 @@ class Solution(object):
 		res = []
 		nums.sort()
 		for i in range(len(nums)-2): #[8]
-			if nums[i]>0: break #[7]
+			if nums[0]>0: break #[7]
 			if i>0 and nums[i]==nums[i-1]: continue #[1]
 
 			l, r = i+1, len(nums)-1 #[2]
