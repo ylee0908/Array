@@ -1,4 +1,7 @@
+https://leetcode.com/problems/missing-number/
 nums = [9, 6, 4, 2, 3, 5, 7, 0, 1]
+
+
 #hashset function
 #time : O(n) for nums_set and loop
 #space: O(n) for set function
