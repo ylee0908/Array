@@ -6,7 +6,7 @@ def rotate(nums, k):
 	Do not return anything, modify nums in-place instead.
 	"""
 	s = 0
-	e = len(nums)
+	e = len(nums) -1
 	reverse(nums, s, e)
 	reverse(nums, s, k - 1)
 	reverse(nums, k, e)
