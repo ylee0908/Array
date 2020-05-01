@@ -3,44 +3,33 @@ https://leetcode.com/problems/intersection-of-two-arrays-ii/
 350. Intersection of Two Arrays II
 Given two arrays, write a function to compute their intersection.
 
-Input: nums1 = [1,2,2,1], nums2 = [2,2]
-Output: [2,2]
-#try, error with two pointers
-class Solution(object):
-    def intersect(self, nums1, nums2):
-
-        nums1, nums2 = sorted(nums1), sorted(nums2)
-        pt1 = pt2 = 0
+A.sort()
+        B.sort()
         res = []
-
-        while True:
-            try:
-                if nums1[pt1] > nums2[pt2]:
-                    pt2 += 1
-                elif nums1[pt1] < nums2[pt2]:
-                    pt1 += 1
-                else:
-                    res.append(nums1[pt1])
-                    pt1 += 1
-                    pt2 += 1
-            except IndexError:
-                break
-
+        i = j = 0
+        while i < len(A) and j < len(B):
+            if A[i] == B[j]:
+                res.append(A[i])
+                i += 1
+                j += 1
+            elif A[i] < B[j]:
+                i += 1
+            else:
+                j += 1
         return res
- 
  
  #ht
  def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        dict1 = dict()
-        for i in nums1:
-            if i not in dict1:
-                dict1[i] = 1
+        res = []
+        d = dict()
+        for n in nums1:
+            if n in d:
+                d[n] += 1
             else:
-                dict1[i] += 1
-        ret = []
-        for i in nums2:
-            if i in dict1 and dict1[i] >0 :
-                ret.append(i)
-                dict1[i] -= 1
-        return ret
-
+                d[n] = 1
+        for n in nums2:
+            if n in d and d[n]>0:
+                res.append(n)
+                d[n] -= 1
+        return res
+        
