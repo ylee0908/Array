@@ -1,0 +1,4 @@
+def findKthLargest(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        return nums[len(nums)-k]
+     #time O(nlogn), O(1) memory
